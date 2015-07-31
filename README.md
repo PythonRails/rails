@@ -2,6 +2,7 @@
 
 Why not to create Python on Rails? Why Ruby on Rails can do something that isn't possible on Python? We can do the web framework that will be better and easier to build first-class websites.
 
+
 Some ideas
 ---
 
@@ -13,3 +14,15 @@ Some ideas
 - [ ] ... and something else
 
 **Have an idea?** [Create Pull Request](https://github.com/PythonRails/pythonrails/pulls) or [Create New Issue](https://github.com/PythonRails/pythonrails/issues).
+
+
+How to use
+---
+
+- Clone this project `cd ~/myprojects && git clone git@github.com:PythonRails/pythonrails.git`
+- Create virtualenv for the project with `virtualenvwrapper`: `mkvirtualenv pythonrails`
+- `cd ~/.virtualenvs/pythonrails/lib/python2.7/site-packages/`
+- `ln -s ~/myprojects/pythonrails/pythonrails` (link to package inside project dir)
+- `cd ~/myprojects/pythonrails && ln -s tests/projects/blog/app.py`
+- run web server `python app.py`
+- open web browser [127.0.0.1:8500](http://127.0.0.1:8500)
