@@ -23,7 +23,7 @@ How to use
 - Create virtualenv for the project with virtualenvwrapper: `mkvirtualenv pythonrails`
 - `cd ~/.virtualenvs/pythonrails/lib/python2.7/site-packages/`
 - `ln -s ~/myprojects/pythonrails/pythonrails` (link to package inside project dir)
-- `cd ~/myprojects/pythonrails`
-- `pip install -r test_projects/blog/requirements.txt`
-- run web server `python test_projects/blog/app.py`
+- `cd ~/myprojects/pythonrails/test_projects/blog`
+- `pip install -r requirements.txt`
+- run web server `python app.py`
 - open web browser [127.0.0.1:8500](http://127.0.0.1:8500)
