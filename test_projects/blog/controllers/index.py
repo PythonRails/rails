@@ -18,6 +18,6 @@ class Index(object):
         """
         Handle all pages that doesn't have an action inside this controller.
 
-        For example, you can open page '/index/something' - to go to this method.
+        You can open page '/index/something' or '/something' to see this page.
         """
-        return Response("Handle all pages near the Index controller. Now requested {}".format(request.path))
+        return Response("Handle all pages in the Index controller. Requested page: {}".format(request.path))
