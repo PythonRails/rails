@@ -19,6 +19,8 @@ Our goals
 Quick start
 ---
 
+You can find our [test project](test_projects/blog) to find how it organized.
+
 - Clone this project `cd ~/myprojects && git clone git@github.com:PythonRails/pythonrails.git`
 - Create virtualenv for the project with virtualenvwrapper: `mkvirtualenv pythonrails`
 - `cd ~/.virtualenvs/pythonrails/lib/python2.7/site-packages/`
