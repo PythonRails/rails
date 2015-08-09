@@ -20,10 +20,10 @@ How to use
 ---
 
 - Clone this project `cd ~/myprojects && git clone git@github.com:PythonRails/pythonrails.git`
-- Create virtualenv for the project with `virtualenvwrapper`: `mkvirtualenv pythonrails`
+- Create virtualenv for the project with virtualenvwrapper: `mkvirtualenv pythonrails`
 - `cd ~/.virtualenvs/pythonrails/lib/python2.7/site-packages/`
 - `ln -s ~/myprojects/pythonrails/pythonrails` (link to package inside project dir)
-- `cd ~/myprojects/pythonrails && ln -s tests/projects/blog/app.py`
-- `pip install -r tests/projects/blog/requirements.txt`
-- run web server `python app.py`
+- `cd ~/myprojects/pythonrails`
+- `pip install -r test_projects/blog/requirements.txt`
+- run web server `python test_projects/blog/app.py`
 - open web browser [127.0.0.1:8500](http://127.0.0.1:8500)
