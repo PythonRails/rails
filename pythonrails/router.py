@@ -69,7 +69,7 @@ class Router(object):
         """
         Find appropriate controller for requested address.
 
-        Returns Response object.
+        Return Response object that support the WSGI interface.
         """
         request = Request(environ)
         try:
