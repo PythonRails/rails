@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 import os
+import sys
 import traceback
 from webob.exc import HTTPNotFound, HTTPInternalServerError
 from .request import Request
@@ -13,14 +14,14 @@ class Router(object):
     Main project router that calls appropriate controller.
     """
 
-    def __init__(self, project_dir):
+    def __init__(self):
         """
         Load all controllers.
 
         It allow us to speed-up get controller by given url.
         """
         self._controllers = {}
-        self._project_dir = project_dir
+        self._project_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
         self._load_controllers()
 
     def _load_controllers(self):
