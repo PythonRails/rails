@@ -13,7 +13,7 @@ class Router(object):
     Main project router that calls appropriate controller.
     """
 
-    def __init__(self, project_dir=os.getcwd()):
+    def __init__(self, project_dir):
         """
         Load all controllers.
 
