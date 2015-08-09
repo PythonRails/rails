@@ -17,4 +17,6 @@ Controller is a class that defined in the file with the same name as the control
 
 Controller has actions - functions that defined inside the class. Each action should be prefixed with `get`, `post`, `put` or `delete` - according to request method (like in REST). For example, when you get an article change form - you need an action `get_article_change_form`. When you need to save changes - you need to have `post_article_change_form`. In both cases - the url address the same `/article/article_change_form/[id]/` where `[id]` is an article id.
 
+But we have few special actions. First is `index` that called when we provide nothing in url address after the controller name, for example request `/blogs` page. Second is `not_found` that called when requested action doesn't found inside the requested controller. But if your controller doesn't have defined `not_found` action than will be called `not_found` action in the main project controller - `Index`.
+
 Action assign only one argument - the [request](request.md) object. The `request` give you access to all data from request, including requested url address, request method, GET or POST data and more.
