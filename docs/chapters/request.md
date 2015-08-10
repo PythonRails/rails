@@ -8,7 +8,7 @@ Request
 Methods
 ---
 
-- **get_controller_name()** `:string`. Return controller name based on query string. If controller isn't given it return 'index'. 
+- **get_controller_name()** `: string`. Return controller name based on query string. If controller isn't given it return 'index'. 
 
 - **get_action_name()** `: string`. Return action name based on query string. If action name isn't given it return 'index'.
 
