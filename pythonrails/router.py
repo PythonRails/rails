@@ -73,9 +73,9 @@ class Router(object):
         """
         request = Request(environ)
         try:
-            controller_name = request.get_url_controller()
+            controller_name = request.get_controller_name()
             controller = self.get_controller_by_name(controller_name)
-            action_name = request.get_url_action()
+            action_name = request.get_action_name()
             action = self.get_controller_action(controller, action_name)
             if not action and controller_name != 'index':
                 # call index controller for catch all unhandled pages
