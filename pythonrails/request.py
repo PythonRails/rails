@@ -3,7 +3,9 @@ from webob import Request as WebobRequest
 
 class Request(WebobRequest):
     """
-    Extended request object.
+    Represent user request.
+
+    It contain query string, request method (get, post, put, delete) and more.
     """
 
     def get_controller_name(self):
