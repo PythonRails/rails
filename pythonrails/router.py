@@ -41,8 +41,9 @@ class Router(object):
                 module_name = file_name.split('.', 1)[0]
                 module_path = "controllers.{}".format(module_name)
                 module = import_module(module_path)
-                # TODO: find solution for CamelCase names of controllers
-                controller_class = getattr(module, module_name.title())
+                # transform 'blog_articles' file name to 'BlogArticles' class
+                controller_class_name = module_name.title().replace('_', '')
+                controller_class = getattr(module, controller_class_name)
                 controller = controller_class()
                 for action_name in dir(controller):
                     action = getattr(controller, action_name)
