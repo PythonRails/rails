@@ -25,6 +25,17 @@ class Request(WebobRequest):
 
     def get_url_params(self):
         """
-        Return all parameters that placed after controller and action name in query string.
+        Return all parameters that placed after controller and action names in url.
         """
         return self.path_info.strip('/').split('/')[2:]
+
+    def get_url_param(self, index, default=None):
+        """
+        Return url parameter with given index.
+
+        Args:
+        - index: starts from zero, and come after controller and
+          action names in url.
+        """
+        params = self.get_url_params()
+        return params[index] if index < len(params) else default

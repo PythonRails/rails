@@ -14,10 +14,9 @@ class Router(object):
     Main project router that calls appropriate controller.
 
     TODO:
-    - load all controllers and their actions to dict to speedup
-      lookup of desired url address
-    - call appropriate method with get/post/put/delete prefix
     - decorate each controller's call with middleware
+    - (done) load all controllers and their actions to dict to speedup
+      lookup of desired url address
     """
 
     def __init__(self):
@@ -43,21 +42,34 @@ class Router(object):
                 module_path = "controllers.{}".format(module_name)
                 module = import_module(module_path)
                 # TODO: find solution for CamelCase names of controllers
-                controller = getattr(module, module_name.title())
-                self._controllers[module_name] = controller()
+                controller_class = getattr(module, module_name.title())
+                controller = controller_class()
+                for action_name in dir(controller):
+                    action = getattr(controller, action_name)
+                    if action_name.startswith('_') or not callable(action):
+                        continue
+                    url_path = "/".join([module_name, action_name])
+                    self._controllers[url_path] = action
         return self._controllers
 
-    def get_controller_by_name(self, name):
+    def get_action_handler(self, controller_name, action_name):
         """
-        Return controller by name.
-        """
-        return self._controllers.get(name, None)
+        Return action of controller as callable.
 
-    def get_controller_action(self, controller, action_name):
+        If requested controller isn't found - return 'not_found' action
+        of requested controller or Index controller.
         """
-        Return controller's action as callable.
-        """
-        return getattr(controller, action_name, getattr(controller, 'not_found', None))
+        try_actions = [
+            controller_name + '/' + action_name,
+            controller_name + '/not_found',
+            # call Index controller to catch all unhandled pages
+            'index/not_found'
+        ]
+        # search first appropriate action handler
+        for path in try_actions:
+            if path in self._controllers:
+                return self._controllers[path]
+        return None
 
     def _format_error_message(self, msg, with_traceback=False):
         if with_traceback:
@@ -74,21 +86,16 @@ class Router(object):
         request = Request(environ)
         try:
             controller_name = request.get_controller_name()
-            controller = self.get_controller_by_name(controller_name)
             action_name = request.get_action_name()
-            action = self.get_controller_action(controller, action_name)
-            if not action and controller_name != 'index':
-                # call index controller for catch all unhandled pages
-                controller = self.get_controller_by_name('index')
-                action = self.get_controller_action(controller, 'not_found')
-            if not callable(action):
+            action_handler = self.get_action_handler(controller_name, action_name)
+            if not callable(action_handler):
                 # action handler should be a callable function
                 raise PageNotFound(
                     "Controller '{name}' doesn't have action '{action}'",
                     name=controller_name,
                     action=action_name
                 )
-            resp = action(request)
+            resp = action_handler(request)
             if not isinstance(resp, Response):
                 raise Exception("Controller should return Response object, but given '{}'".format(type(resp)))
         except PageNotFound as err:

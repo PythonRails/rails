@@ -13,10 +13,14 @@ Main project controller called `Index`. When you request website - you see welco
 Naming
 ---
 
-Controller is a class that defined in the file with the same name as the controller, but in lower case. For example, the `Blogs` controller should be defined in `controllers/blogs.py` file.
+Controller is a class that defined in the file with the same name as the controller, but in lower case. For example, the `Blogs` controller should be defined in `controllers/blogs.py` file. If you have controller with name like this `BlogArticles` than place it in file `controllers/blog_articles.py` (insert underscore for each new word in class name).
 
-Controller has actions - functions that defined inside the class. For example, when you show an article change form or POST this form - you need to define an action `change` inside the controller `Article`. In both cases - the url address the same `/article/change/[id]/` where `[id]` is an article id.
+Controller has **actions** - functions that defined inside the controller class. Any function that defined in the controller - is an action and can be accessed from the url address. If you need to add new funtion that sould be hidded from the public access - prefix it with underscore, for example `_get_something()`.
 
-But we have few special actions. First one is `index` that called when we provide nothing in url address after the controller name, for example request `/blogs` page. Second one is `not_found` that called when requested action doesn't found inside the requested controller.
+When you need to show "change user profile" page - you need to define an action `change` inside the controller `UserProfile`. Url address for this page is `/user_profile/change/` (you can send form as POST request to this url address to handle save data action as well as handle GET request to show data).
 
-Action function get only one argument - the [request](request.md) object. The `request` give you access to all data from request, including requested url address, request method, GET or POST data and more.
+Also we have few special actions:
+- First one is **`index`** that called when we provide nothing in url address after the controller name. For example, requested `/blogs` page. In this case we call `Blogs` controller with `index` action.
+- Second one is **`not_found`** that called when requested action doesn't found inside the requested controller.
+
+Action function get only one argument - the [request](request.md) object. The `request` give you access to all data from request, including requested url address, quesry string, request method, GET or POST data and more.
