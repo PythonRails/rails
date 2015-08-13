@@ -15,7 +15,7 @@ Project features
 - [ ] **Auth out of the box**. Don't lose your time. Create new project and focus on project logic. You can login via external websites (facebook, twitter) in one click as well as via email.
 - [ ] ... [and something else](docs/chapters/features.md)
 
-**Have an idea?** [Create Pull Request](https://github.com/PythonRails/pythonrails/pulls) or [Create New Issue](https://github.com/PythonRails/pythonrails/issues).
+**Have an idea?** [Create Pull Request](https://github.com/PythonRails/pythonrails/pulls) or [Create New Issue](https://github.com/PythonRails/pythonrails/issues). Also join to us on [facebook](https://www.facebook.com/PythonRails),
 
 
 Quick start
