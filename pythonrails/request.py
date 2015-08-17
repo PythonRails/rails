@@ -39,3 +39,10 @@ class Request(WebobRequest):
         """
         params = self.get_url_params()
         return params[index] if index < len(params) else default
+
+    @property
+    def is_ajax(self):
+        """
+        Check is it an AJAX request.
+        """
+        return self.is_xhr
