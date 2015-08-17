@@ -6,7 +6,7 @@ Top features
 ---
 
 - [x] **Fastest way to find requested page**. Load all controllers and their actions to dict to speedup lookup of desired url address.
-- [x] **Dynamic url mapping**. You don't need to define url mapping in a separate place. Each url address has corresponding handler with the same name as requested in url. Now it's very easy to find the page handler in few seconds.
+- [x] **Dynamic url mapping**. You don't need to define url mapping in a separate place. Each url address has corresponding handler with the same name as requested in url. Now it's very easy to find the page handler in few seconds. Also it avoid problem with url overlap.
 
 
 Other features
