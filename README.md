@@ -1,7 +1,18 @@
-Pyth*on*Rails
+Rails - Python web framework
 ===
 
-Why not to create Python on Rails? Why Ruby on Rails can do something that isn't possible on Python? We can do the web framework that will be better and easier to build first-class websites.
+**Rails on Python** is a web framework with an idea to simplify web development. It's not a clone of **Ruby on Rails**. This project created for write less code, and this code should be good structured in small and big projects.
+
+
+Quick start
+---
+
+- create new [virtual env](https://bitbucket.org/dhellmann/virtualenvwrapper) for test project: `mkvirtualenv test_project`
+- install Rails with [pip](https://pypi.python.org/pypi/Rails): `pip install Rails`
+- clone our test project with `git clone git@github.com:PythonRails/examples.git rails_examples`
+- open a test project and run it: `cd rails_examples && python blog/app.py`
+- open web browser [127.0.0.1:8800](http://127.0.0.1:8800)
+
 
 
 Project features
@@ -18,23 +29,7 @@ Project features
 **Have an idea?** [Create Pull Request](https://github.com/PythonRails/pythonrails/pulls) or [Create New Issue](https://github.com/PythonRails/pythonrails/issues). Also join to us on [facebook](https://www.facebook.com/PythonRails),
 
 
-Quick start
----
-
-You can find our [test project](test_projects/blog) to find how it organized.
-
-- Clone this project `cd ~/myprojects && git clone git@github.com:PythonRails/pythonrails.git`
-- Create virtualenv for the project with virtualenvwrapper: `mkvirtualenv pythonrails`
-- `cd ~/.virtualenvs/pythonrails/lib/python2.7/site-packages/`
-- `ln -s ~/myprojects/pythonrails/pythonrails` (link to package inside project dir)
-- `cd ~/myprojects/pythonrails/test_projects/blog`
-- `pip install -r requirements.txt`
-- run web server `python app.py`
-- open web browser [127.0.0.1:8500](http://127.0.0.1:8500)
-
-
 Documentation
 ---
 
 Read [full documentation](docs) to get started.
-

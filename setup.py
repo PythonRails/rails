@@ -1,42 +1,16 @@
 """
-Rails - a python web framework
+Rails
 ====================
 
-This project designed for web developers who want to do more for less time.
-Create new project in few minutes.
-User registration and authentication system ready to use.
+**Rails on Python** is a web framework with an idea to simplify web development.
+It's not a clone of **Ruby on Rails**. This project created for for less code,
+and this code should be good structured in small and big projects.
 
 
 Quick start
 -------------
 
-Clone and run example application. Don't forget to switch to your project's virtualenv.
-
-.. code:: shell
-
-   git clone git@github.com:pythonrails/examples.git
-   cd examples/
-   pip install -r requirements.txt
-   # run server on 127.0.0.1:8000
-   python app.py
-
-
-Development
--------------
-
-You can install development version by clone `git repository <https://github.com/pythonrails/pythonrails>`_::
-
-    git clone git@github.com:pythonrails/pythonrails.git
-
-
-Links
--------
-
-* `project website <https://github.com/pythonrails/pythonrails>`_
-* `documentation <https://github.com/pythonrails/docs>`_
-* `sample applications <https://github.com/pythonrails/examples>`_
-* `follow us on facebook <https://www.facebook.com/pythonrails>`_
-
+Read `Quick Start <https://github.com/pythonrails/pythonrails>`_ on GitHub.
 """
 
 try:
