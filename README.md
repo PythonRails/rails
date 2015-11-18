@@ -9,7 +9,7 @@ Quick start
 
 - create new [virtual env](https://bitbucket.org/dhellmann/virtualenvwrapper) for test project: `mkvirtualenv test_project`
 - install Rails with [pip](https://pypi.python.org/pypi/Rails): `pip install Rails`
-- clone our test project with `git clone git@github.com:PythonRails/examples.git`
+- clone our [test project](https://github.com/PythonRails/examples) with `git clone git@github.com:PythonRails/examples.git`
 - open a test project and run it: `cd examples && python blog/app.py`
 - open web browser [127.0.0.1:8800](http://127.0.0.1:8800)
 
