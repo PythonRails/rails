@@ -13,6 +13,8 @@ Quick start
 - open a test project and run it: `cd examples && python blog/app.py`
 - check how it works, open: [127.0.0.1:8800](http://127.0.0.1:8800)
 
+Continue with read [documentation](docs) to get started.
+
 
 Project features
 ---
@@ -31,9 +33,3 @@ Development
 ---
 
 **Have an idea?** [Create Pull Request](https://github.com/PythonRails/rails/pulls) or [Create New Issue](https://github.com/PythonRails/rails/issues). Also join to us on [facebook](https://www.facebook.com/PythonRails),
-
-
-Documentation
----
-
-Read [full documentation](docs) to get started.
