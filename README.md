@@ -30,7 +30,7 @@ Project features
 Development
 ---
 
-**Have an idea?** [Create Pull Request](https://github.com/PythonRails/pythonrails/pulls) or [Create New Issue](https://github.com/PythonRails/pythonrails/issues). Also join to us on [facebook](https://www.facebook.com/PythonRails),
+**Have an idea?** [Create Pull Request](https://github.com/PythonRails/rails/pulls) or [Create New Issue](https://github.com/PythonRails/rails/issues). Also join to us on [facebook](https://www.facebook.com/PythonRails),
 
 
 Documentation

@@ -10,7 +10,7 @@ and this code should be good structured in small and big projects.
 Quick start
 -------------
 
-Read `Quick Start <https://github.com/pythonrails/pythonrails>`_ on GitHub.
+Read `Quick Start <https://github.com/pythonrails/rails>`_ on GitHub.
 """
 
 try:
@@ -19,13 +19,13 @@ except ImportError:
     from distutils.core import setup
 
 
-version = '0.0.1'
+version = '0.0.2'
 
 
 setup(
     name='Rails',
     version=version,
-    url='https://github.com/pythonrails/pythonrails',
+    url='https://github.com/pythonrails/rails',
     license='MIT',
     author='Anton Danilchenko',
     author_email='anton@danilchenko.me',
