@@ -1,5 +1,5 @@
 from wsgiref.simple_server import make_server
-from pythonrails.router import Router
+from rails.router import Router
 
 
 def run(host='127.0.0.1', port=8000):
