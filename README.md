@@ -24,7 +24,7 @@ Project features
 - [ ] **Middlewares**. When we need to do something before and after call the desired controller - we use middleware.
 - [ ] **Templates in python style**. It will be good to create templates without closing tags in hierarchical structure, like we do in Python code or in YAML.
 - [ ] **Auth out of the box**. Focus on coding new logic. You have out-of-the-box ability to login via external websites *(facebook, twitter)* in one click as well as via email + password.
-- [ ] ... [and something else](docs/chapters/features.md)
+- [ ] *[and something else](docs/chapters/features.md)*
 
 
 Development
