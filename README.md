@@ -13,7 +13,7 @@ Quick start
 - open a test project and run it: `cd examples && python blog/app.py`
 - check how it works, open: [127.0.0.1:8800](http://127.0.0.1:8800)
 
-Continue with read [documentation](docs) to get started.
+Continue to read [documentation](docs) to get started.
 
 
 Project features
