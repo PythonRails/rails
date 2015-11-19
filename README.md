@@ -14,13 +14,13 @@ Quick start
 - check how it works, open: [127.0.0.1:8800](http://127.0.0.1:8800)
 
 
-
 Project features
 ---
 
 - [x] **Simple project structure**. When you need to create new controller or model - just do it. No worry about "in what app I need to place this code" *(if we talk about Django)*. All project models place in `models` folder and all controllers create in `controllers` folder.
 - [x] **No routers**. With routers we can overlap some urls and have problems with accessing desired url. In our case we have simple mapping between url address and controller name and action. Access to `/users/details/15` calls a controller `Users` and an action `details()` with argument `15`. The main project controller is `Index` and can be used to render homepage with action `index()`.
 - [x] **Less magic**. All work as expected without overcomplecated magic. We use magic only when it is natural and easy to understand.
+- [ ] **Less coupling**. You can choose any **Model backend** *(like [SQL Alchemy](http://www.sqlalchemy.org), [SQLObject](http://www.sqlobject.org), [PonyORM](https://ponyorm.com))* and any **View backend** *([Jinja2](http://jinja.pocoo.org), [Mako](http://www.makotemplates.org), [Chameleon](http://chameleon.readthedocs.org/en/latest/))*. It configurable in the project settings file.
 - [ ] **Middlewares**. When we need to do something before and after call the desired controller - we use middleware.
 - [ ] **Templates in python style**. It will be good to create templates without closing tags in hierarchical structure, like we do in Python code or in YAML.
 - [ ] **Auth out of the box**. Focus on coding new logic. You have out-of-the-box ability to login via external websites *(facebook, twitter)* in one click as well as via email + password.
