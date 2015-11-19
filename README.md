@@ -10,7 +10,8 @@ Quick start
 - create new [virtual env](https://bitbucket.org/dhellmann/virtualenvwrapper) for test project: `mkvirtualenv test_project`
 - install Rails with [pip](https://pypi.python.org/pypi/Rails): `pip install Rails`
 - clone our [test project](https://github.com/PythonRails/examples): `git clone git@github.com:PythonRails/examples.git`
-- open a test project and run it: `cd examples && python blog/app.py`
+- open a test project and install dependencies: `cd examples/blog` and `pip install -r requirements.txt`
+- run project `python app.py`
 - check how it works, open: [127.0.0.1:8800](http://127.0.0.1:8800)
 
 Continue to read [documentation](docs) to get started.
