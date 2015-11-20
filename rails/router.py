@@ -7,6 +7,7 @@ from .request import Request
 from .response import Response
 from .exceptions import PageNotFound
 from .tools import import_module
+from .views import View
 
 
 class Router(object):
@@ -28,55 +29,7 @@ class Router(object):
         self._controllers = {}
         self._project_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
         self._load_controllers()
-
-    def _load_controllers(self):
-        """
-        Load all controllers from folder 'controllers'.
-
-        Ignore files with leading underscore (for example: controllers/_blogs.py)
-        """
-        for file_name in os.listdir(os.path.join(self._project_dir, 'controllers')):
-            # ignore disabled controllers
-            if not file_name.startswith('_'):
-                module_name = file_name.split('.', 1)[0]
-                module_path = "controllers.{}".format(module_name)
-                module = import_module(module_path)
-                # transform 'blog_articles' file name to 'BlogArticles' class
-                controller_class_name = module_name.title().replace('_', '')
-                controller_class = getattr(module, controller_class_name)
-                controller = controller_class()
-                for action_name in dir(controller):
-                    action = getattr(controller, action_name)
-                    if action_name.startswith('_') or not callable(action):
-                        continue
-                    url_path = "/".join([module_name, action_name])
-                    self._controllers[url_path] = action
-        return self._controllers
-
-    def get_action_handler(self, controller_name, action_name):
-        """
-        Return action of controller as callable.
-
-        If requested controller isn't found - return 'not_found' action
-        of requested controller or Index controller.
-        """
-        try_actions = [
-            controller_name + '/' + action_name,
-            controller_name + '/not_found',
-            # call Index controller to catch all unhandled pages
-            'index/not_found'
-        ]
-        # search first appropriate action handler
-        for path in try_actions:
-            if path in self._controllers:
-                return self._controllers[path]
-        return None
-
-    def _format_error_message(self, msg, with_traceback=False):
-        if with_traceback:
-            tb = traceback.format_exc()
-            msg += '<h3>Traceback</h3>\n\n<pre>{}</pre>'.format(tb)
-        return msg
+        self._init_view()
 
     def __call__(self, environ, start_response):
         """
@@ -107,3 +60,59 @@ class Router(object):
             return HTTPInternalServerError(message)(environ, start_response)
 
         return resp(environ, start_response)
+
+    def _load_controllers(self):
+        """
+        Load all controllers from folder 'controllers'.
+
+        Ignore files with leading underscore (for example: controllers/_blogs.py)
+        """
+        for file_name in os.listdir(os.path.join(self._project_dir, 'controllers')):
+            # ignore disabled controllers
+            if not file_name.startswith('_'):
+                module_name = file_name.split('.', 1)[0]
+                module_path = "controllers.{}".format(module_name)
+                module = import_module(module_path)
+                # transform 'blog_articles' file name to 'BlogArticles' class
+                controller_class_name = module_name.title().replace('_', '')
+                controller_class = getattr(module, controller_class_name)
+                controller = controller_class()
+                for action_name in dir(controller):
+                    action = getattr(controller, action_name)
+                    if action_name.startswith('_') or not callable(action):
+                        continue
+                    url_path = "/".join([module_name, action_name])
+                    self._controllers[url_path] = action
+        return self._controllers
+
+    def _init_view(self):
+        """
+        Initialize View with project settings.
+        """
+        templates_dir = os.path.join(self._project_dir, "views", "templates")
+        self._view = View("jinja", templates_dir)
+
+    def _format_error_message(self, msg, with_traceback=False):
+        if with_traceback:
+            tb = traceback.format_exc()
+            msg += "<h3>Traceback</h3>\n\n<pre>{}</pre>".format(tb)
+        return msg
+
+    def get_action_handler(self, controller_name, action_name):
+        """
+        Return action of controller as callable.
+
+        If requested controller isn't found - return 'not_found' action
+        of requested controller or Index controller.
+        """
+        try_actions = [
+            controller_name + '/' + action_name,
+            controller_name + '/not_found',
+            # call Index controller to catch all unhandled pages
+            'index/not_found'
+        ]
+        # search first appropriate action handler
+        for path in try_actions:
+            if path in self._controllers:
+                return self._controllers[path]
+        return None
