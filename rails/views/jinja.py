@@ -1,4 +1,4 @@
-# from jinja import Template
+from jinja2 import Template
 from .base import BaseView
 
 
@@ -11,8 +11,7 @@ class JinjaView(BaseView):
         """
         Load template engine by name and return an instance.
         """
-        return None
-        # return Template
+        return Template
 
     def render(self, template_name, variables=None):
         """

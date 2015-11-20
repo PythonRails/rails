@@ -31,3 +31,12 @@ class View(object):
         Render a template with the passed variables.
         """
         return View._instance.render(template_name, variables)
+
+
+def render_template(template_name, variables=None):
+    """
+    Render a template with the passed variables.
+
+    Used a template engine that defined in a project settings.
+    """
+    return View.render(template_name, variables=None)
