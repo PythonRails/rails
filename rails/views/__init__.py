@@ -39,4 +39,4 @@ def render_template(template_name, variables=None):
 
     Used a template engine that defined in a project settings.
     """
-    return View.render(template_name, variables=None)
+    return View.render(template_name, variables)
