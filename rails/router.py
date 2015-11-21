@@ -3,6 +3,8 @@ import os
 import sys
 import traceback
 from webob.exc import HTTPNotFound, HTTPInternalServerError
+from .config import Config
+from .config import get_config
 from .request import Request
 from .response import Response
 from .exceptions import PageNotFound
@@ -28,6 +30,7 @@ class Router(object):
         """
         self._controllers = {}
         self._project_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
+        self._load_config()
         self._load_controllers()
         self._init_view()
 
@@ -61,6 +64,12 @@ class Router(object):
 
         return resp(environ, start_response)
 
+    def _load_config(self):
+        """
+        Load config for current project.
+        """
+        self._config = Config()
+
     def _load_controllers(self):
         """
         Load all controllers from folder 'controllers'.
@@ -89,8 +98,9 @@ class Router(object):
         """
         Initialize View with project settings.
         """
+        views_engine = get_config('rails.views.engine', 'jinja')
         templates_dir = os.path.join(self._project_dir, "views", "templates")
-        self._view = View("jinja", templates_dir)
+        self._view = View(views_engine, templates_dir)
 
     def _format_error_message(self, msg, with_traceback=False):
         if with_traceback:
