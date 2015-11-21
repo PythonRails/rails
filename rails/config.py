@@ -36,7 +36,6 @@ class Config(object):
             raise Exception("Config path should be divided by at least one dot")
         section_name, var_path = name.split('.', 1)
         section = Config._data.get(section_name)
-        print(section)
         return section.get(var_path)
 
 
