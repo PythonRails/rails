@@ -1,7 +1,7 @@
 Rails - Python web framework
 ===
 
-**Python on Rails** is a web framework with an idea to simplify web development. It's not a clone of **Ruby on Rails**. This project created for write less code, and this code should be good structured in small and big projects.
+**Python on Rails** is a web framework with an idea to simplify web development. It's not a clone of **Ruby on Rails**. This project created for **lazy developers** who like to write less code. Code that should be good structured in small and big projects.
 
 
 Quick start
