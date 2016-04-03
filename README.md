@@ -4,6 +4,9 @@ Rails - Python web framework
 **Python on Rails** is a web framework with an idea to simplify web development. It's not a clone of **Ruby on Rails**. This project created for **lazy developers** who like to write less code. Code that should be good structured in small and big projects.
 
 
+> **Do you use Django?** Look to my new project [Django(mini)](https://github.com/djangomini/djangomini) - simplified infrastrusture to create Django projects. It speed-up development process in few times. Try it.
+
+
 Quick start
 ---
 
